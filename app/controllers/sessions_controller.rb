@@ -15,4 +15,5 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to sign_in_url, notice: "Have a good one!"
   end
+
 end

@@ -1,5 +1,18 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
+
+  def require_login
+    redirect_to sign_in_url, notice: "Please Sign In" unless session[:user_id]
+  end
+
+  def perspective_url(item)
+    if item.user_story?
+      project_url(item.project)
+    elsif item.rule?
+      rule_project_url(item.project)
+    else
+      worry_project_url(item.project)
+    end
+  end
 end

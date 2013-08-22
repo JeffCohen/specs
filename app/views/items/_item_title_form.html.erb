@@ -1,0 +1,5 @@
+<td id="item_<%= @item.id %>">
+  <%= form_for @item, remote: true, html: { id: 'inline_form'} do |f| %>
+    <%= f.text_field :title, id: 'form_item_title' %>
+  <% end %>
+</td>
