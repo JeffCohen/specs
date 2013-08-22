@@ -22,6 +22,7 @@ end
 
 group :production do
   gem 'therubyracer'
+  gem 'mysql2'
 end
 
 group :doc do
