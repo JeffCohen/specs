@@ -20,6 +20,9 @@ group :development do
   gem 'haml-rails'
 end
 
+group :production do
+  gem 'therubyracer'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
