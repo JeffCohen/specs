@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :find_project, only: [:show, :rules, :worries, :edit, :update, :destroy]
   before_action :require_login
 
   def index
@@ -9,16 +9,18 @@ class ProjectsController < ApplicationController
 
   def show
     @items = @project.user_stories
-    @new_item = Item.new(project: @project, category: Category.find_by(name: 'User Story'))
+    @new_item = Item.new(project: @project, category: Category.user_story)
   end
 
   def rules
     @items = @project.rules
+    @new_item = Item.new(project: @project, category: Category.rule)
     render 'show'
   end
 
   def worries
     @items = @project.worries
+    @new_item = Item.new(project: @project, category: Category.worry)
     render 'show'
   end
 

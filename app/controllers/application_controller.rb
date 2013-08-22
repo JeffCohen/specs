@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
     if item.user_story?
       project_url(item.project)
     elsif item.rule?
-      rule_project_url(item.project)
+      rules_project_url(item.project)
     else
-      worry_project_url(item.project)
+      worries_project_url(item.project)
     end
   end
 end
